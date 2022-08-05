@@ -47,10 +47,10 @@
 // }}}
 module dblpipe (
 		// {{{
-		input	wire	i_clk, i_ce,
+		input wire  i_clk, i_ce,
 		//
-		input	wire	i_data,
-		output	reg	o_data
+		input wire	i_data,
+		output reg	o_data
 		// }}}
 	);
 
@@ -62,4 +62,35 @@ module dblpipe (
 	initial	o_data = 1'b0;
 	always @(posedge i_clk)
 		o_data <= a_data ^ b_data;
+
+`ifdef FORMAL
+    
+// To prove:
+//
+//	1. That nothing changes as long as CE is low
+//
+//	2. That the outputs of the two LFSR's are identical, and hence the
+//		output, o_data, will be forever zero.
+    
+    reg f_past_valid;
+
+    initial f_past_valid <= 1'b0;
+    always @(posedge i_clk)
+        f_past_valid <= 1'b1;
+    
+    // Inductive assumption: 
+    always @(posedge i_clk)
+        assume(a_data == b_data);
+
+    // Assert the nothing changes as long as CE is low
+    always @(posedge i_clk)
+        if (!i_ce && f_past_valid)
+            assert(o_data == $past(o_data));
+
+    // The outputs of the two LFSR's are identical
+    always @(posedge i_clk)
+        assert(a_data == b_data);
+
+`endif
+
 endmodule

@@ -55,13 +55,14 @@
 module	lfsr_fib #(
 		// {{{
 		parameter	LN=8,	// LFSR Register length/polynomial deg
-		parameter [(LN-1):0]	TAPS = 8'h2d,
-				INITIAL_FILL = { { (LN-1){1'b0}}, 1'b1 }
+		parameter [(LN-1):0]	
+            TAPS = 8'h2d,
+	    	INITIAL_FILL = { { (LN-1){1'b0}}, 1'b1 }
 		// }}}
 	) (
 		// {{{
 		input	wire			i_clk, i_reset, i_ce, i_in,
-		output	wire			o_bit
+		output	wire			 o_bit
 		// }}}
 	);
 
