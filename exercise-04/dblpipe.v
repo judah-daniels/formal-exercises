@@ -79,17 +79,22 @@ module dblpipe (
         f_past_valid <= 1'b1;
     
     // Inductive assumption: 
-    always @(posedge i_clk)
-        assume(a_data == b_data);
+    /* always @(posedge i_clk) */
+    /*     assume(a_data == b_data); */
+
+    // No assumptions needed as i_ce and i_data can be any value
 
     // Assert the nothing changes as long as CE is low
     always @(posedge i_clk)
         if (!i_ce && f_past_valid)
-            assert(o_data == $past(o_data));
+            assert(o_data == $past(o_data)
+                && a_data == $past(a_data)
+                && b_data == $past(b_data));
 
-    // The outputs of the two LFSR's are identical
     always @(posedge i_clk)
         assert(a_data == b_data);
+
+    // The outputs of the two LFSR's are identical
 
 `endif
 

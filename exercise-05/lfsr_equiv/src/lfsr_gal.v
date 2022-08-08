@@ -1,20 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Filename: 	lfsr_equiv.v
+// Filename: 	lfsr_gal.v
 // {{{
-// Project:	A set of Yosys Formal Verification exercises
+// Project:	DSP Filtering Example Project
 //
-// Purpose:	This is a formal proof that the two types of LRS's, Fibonacci
-//		and Galois, are equivalent expressions of the same underlying
-//	function.
-//
-// To prove:
-//
-//	1. That nothing changes as long as CE is low
-//
-//	2. That the outputs of the two LFSR's are identical, and hence the
-//		output, o_data, will be forever zero.
-//
+// Purpose:	
 //
 // Creator:	Dan Gisselquist, Ph.D.
 //		Gisselquist Technology, LLC
@@ -37,43 +27,43 @@
 // with this program.  (It's in the $(ROOT)/doc directory.  Run make with no
 // target there if the PDF file isn't present.)  If not, see
 // <http://www.gnu.org/licenses/> for a copy.
-//
+// }}}
 // License:	GPL, v3, as defined and found on www.gnu.org,
+// {{{
 //		http://www.gnu.org/licenses/gpl.html
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
+//
 `default_nettype	none
 // }}}
-module	lfsr_equiv #(
+module	lfsr_gal #(
 		// {{{
-		parameter			LN=8,
-		parameter	[(LN-1):0]	FIB_TAPS = 8'h2d,
-		parameter	[(LN-1):0]	INITIAL_FILL = (1<<(LN-1)),
-		localparam	[(LN-1):0]	GAL_TAPS = 8'hb4
+		parameter		LN=8,	// LFSR Register length/polynomial deg
+		parameter [(LN-1):0]	TAPS = 8'hb4,
+				INITIAL_FILL = { { (LN-1){1'b0}}, 1'b1 }
 		// }}}
 	) (
 		// {{{
-		input	wire	i_clk, i_reset, i_ce, i_in,
-		output	wire	o_bit
+		input	wire		i_clk, i_reset, i_ce, i_in,
+		output	wire		o_bit
 		// }}}
 	);
 
-	wire	fib_bit, gal_bit;
+	reg	[(LN-1):0]	sreg;
 
-	lfsr_fib #(.LN(LN), .TAPS(FIB_TAPS), .INITIAL_FILL(INITIAL_FILL))
-		fib(i_clk, i_reset, i_ce, i_in, fib_bit);
+	initial	sreg = INITIAL_FILL;
+	always @(posedge i_clk)
+	if (i_reset)
+		sreg <= INITIAL_FILL;
+	else if (i_ce)
+	begin
+		if (sreg[0])
+			sreg <= { i_in, sreg[(LN-1):1] } ^ TAPS;
+		else
+			sreg <= { i_in, sreg[(LN-1):1] };
+	end
 
-	lfsr_gal #(.LN(LN), .TAPS(GAL_TAPS), .INITIAL_FILL(INITIAL_FILL))
-		gal(i_clk, i_reset, i_ce, i_in, gal_bit);
+	assign	o_bit = sreg[0];
 
-	assign	o_bit = fib_bit ^ gal_bit;
-
-`ifdef	FORMAL
-	always @(*)
-		assert(!o_bit);
-    always @(posedge i_clk)
-        assume(fib_bit==gal_bit);
-
-`endif
 endmodule

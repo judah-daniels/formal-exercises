@@ -1,0 +1,83 @@
+initial
+assume (= [$formal$lfsr_equiv.v:75$2_CHECK] false)
+assume (= [$formal$lfsr_equiv.v:75$2_EN] false)
+assume (= [fib.sreg] #b00000000)
+assume (= [gal.sreg] #b00000010)
+
+state 0
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 1
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 2
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 3
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 4
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 5
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 6
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 7
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 8
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 9
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 10
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 11
+assume (= [i_ce] true)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)
+
+state 12
+assume (= [i_ce] false)
+assume (= [i_clk] false)
+assume (= [i_in] false)
+assume (= [i_reset] false)

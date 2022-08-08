@@ -73,7 +73,7 @@ module	lfsr_equiv #(
 	always @(*)
 		assert(!o_bit);
     always @(posedge i_clk)
-        assume(fib_bit==gal_bit);
+        assert(fib_bit==gal_bit);
 
 `endif
 endmodule

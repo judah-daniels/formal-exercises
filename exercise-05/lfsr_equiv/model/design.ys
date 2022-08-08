@@ -1,0 +1,16 @@
+# running in lfsr_equiv/src/
+read -formal lfsr_fib.v
+read -formal lfsr_gal.v
+read -formal lfsr_equiv.v
+prep -top lfsr_equiv
+
+memory_nordff
+async2sync
+chformal -assume -early
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

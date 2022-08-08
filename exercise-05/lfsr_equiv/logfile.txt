@@ -1,0 +1,70 @@
+SBY 16:54:35 [lfsr_equiv] Removing directory '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-05/lfsr_equiv'.
+SBY 16:54:35 [lfsr_equiv] Copy '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-05/lfsr_equiv.v' to '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-05/lfsr_equiv/src/lfsr_equiv.v'.
+SBY 16:54:35 [lfsr_equiv] Copy '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-05/lfsr_fib.v' to '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-05/lfsr_equiv/src/lfsr_fib.v'.
+SBY 16:54:35 [lfsr_equiv] Copy '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-05/lfsr_gal.v' to '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-05/lfsr_equiv/src/lfsr_gal.v'.
+SBY 16:54:35 [lfsr_equiv] engine_0: smtbmc
+SBY 16:54:35 [lfsr_equiv] base: starting process "cd lfsr_equiv/src; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys -ql ../model/design.log ../model/design.ys"
+SBY 16:54:35 [lfsr_equiv] base: /nix/store/qm2lv1gpbyn0rsfai40cbvj3h4gz69yc-bash-5.1-p16/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_GB.UTF-8)
+SBY 16:54:35 [lfsr_equiv] base: finished (returncode=0)
+SBY 16:54:35 [lfsr_equiv] smt2: starting process "cd lfsr_equiv/model; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys -ql design_smt2.log design_smt2.ys"
+SBY 16:54:35 [lfsr_equiv] smt2: /nix/store/qm2lv1gpbyn0rsfai40cbvj3h4gz69yc-bash-5.1-p16/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_GB.UTF-8)
+SBY 16:54:35 [lfsr_equiv] smt2: finished (returncode=0)
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: starting process "cd lfsr_equiv; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys-smtbmc --presat --unroll --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: starting process "cd lfsr_equiv; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys-smtbmc --presat --unroll -i --noprogress -t 12  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: /nix/store/qm2lv1gpbyn0rsfai40cbvj3h4gz69yc-bash-5.1-p16/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_GB.UTF-8)
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: /nix/store/qm2lv1gpbyn0rsfai40cbvj3h4gz69yc-bash-5.1-p16/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_GB.UTF-8)
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 3..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 2..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Trying induction in step 0..
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Temporal induction failed!
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Assert failed in lfsr_equiv: lfsr_equiv.v:73.13-74.17 ($assert$lfsr_equiv.v:73$12)
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Writing trace to VCD file: engine_0/trace_induct.vcd
+SBY 16:54:35 [lfsr_equiv] engine_0.basecase: finished (returncode=0)
+SBY 16:54:35 [lfsr_equiv] engine_0: Status returned by engine for basecase: pass
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_induct_tb.v
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Writing trace to constraints file: engine_0/trace_induct.smtc
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: ##   0:00:00  Status: failed
+SBY 16:54:35 [lfsr_equiv] engine_0.induction: finished (returncode=1)
+SBY 16:54:35 [lfsr_equiv] engine_0: Status returned by engine for induction: FAIL
+SBY 16:54:35 [lfsr_equiv] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 16:54:35 [lfsr_equiv] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 16:54:35 [lfsr_equiv] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 16:54:35 [lfsr_equiv] summary: engine_0 (smtbmc) returned FAIL for induction
+SBY 16:54:35 [lfsr_equiv] DONE (UNKNOWN, rc=4)

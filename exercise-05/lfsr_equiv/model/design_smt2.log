@@ -1,0 +1,116 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+3. Printing statistics.
+
+=== lfsr_equiv ===
+
+   Number of wires:                 11
+   Number of wire bits:             11
+   Number of public wires:           7
+   Number of public wire bits:       7
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $assert                         2
+     $dff                            2
+     $eq                             1
+     $logic_not                      1
+     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib      1
+     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal      1
+     $xor                            1
+
+=== $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal ===
+
+   Number of wires:                 10
+   Number of wire bits:             45
+   Number of public wires:           6
+   Number of public wire bits:      13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                            1
+     $mux                            3
+     $xor                            1
+
+=== $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib ===
+
+   Number of wires:                 11
+   Number of wire bits:             39
+   Number of public wires:           6
+   Number of public wire bits:      13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $and                            1
+     $dff                            1
+     $mux                            2
+     $reduce_xor                     1
+     $xor                            1
+
+=== design hierarchy ===
+
+   lfsr_equiv                        1
+     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib      1
+     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal      1
+
+   Number of wires:                 32
+   Number of wire bits:             95
+   Number of public wires:          19
+   Number of public wire bits:      33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $and                            1
+     $assert                         2
+     $dff                            4
+     $eq                             1
+     $logic_not                      1
+     $mux                            5
+     $reduce_xor                     1
+     $xor                            3
+
+4. Executing SMT2 backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Creating SMT-LIBv2 representation of module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Creating SMT-LIBv2 representation of module lfsr_equiv.
+
+End of script. Logfile hash: 84963b7009, CPU: user 0.01s system 0.00s, MEM: 13.93 MB peak
+Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+Time spent: 74% 2x write_smt2 (0 sec), 15% 2x read_ilang (0 sec), ...

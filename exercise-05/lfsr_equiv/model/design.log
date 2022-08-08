@@ -1,0 +1,423 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: lfsr_fib.v
+Parsing formal SystemVerilog input from `lfsr_fib.v' to AST representation.
+Storing AST representation for module `$abstract\lfsr_fib'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: lfsr_gal.v
+Parsing formal SystemVerilog input from `lfsr_gal.v' to AST representation.
+Storing AST representation for module `$abstract\lfsr_gal'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: lfsr_equiv.v
+Parsing formal SystemVerilog input from `lfsr_equiv.v' to AST representation.
+Storing AST representation for module `$abstract\lfsr_equiv'.
+Successfully finished Verilog frontend.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\lfsr_equiv'.
+Generating RTLIL representation for module `\lfsr_equiv'.
+
+4.2.1. Analyzing design hierarchy..
+Top module:  \lfsr_equiv
+Parameter \LN = 8
+Parameter \TAPS = 8'10110100
+Parameter \INITIAL_FILL = 8'10000000
+
+4.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\lfsr_gal'.
+Parameter \LN = 8
+Parameter \TAPS = 8'10110100
+Parameter \INITIAL_FILL = 8'10000000
+Generating RTLIL representation for module `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal'.
+Parameter \LN = 8
+Parameter \TAPS = 8'00101101
+Parameter \INITIAL_FILL = 8'10000000
+
+4.2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\lfsr_fib'.
+Parameter \LN = 8
+Parameter \TAPS = 8'00101101
+Parameter \INITIAL_FILL = 8'10000000
+Generating RTLIL representation for module `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib'.
+
+4.2.4. Analyzing design hierarchy..
+Top module:  \lfsr_equiv
+Used module:     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal
+Used module:     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib
+
+4.2.5. Analyzing design hierarchy..
+Top module:  \lfsr_equiv
+Used module:     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal
+Used module:     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib
+Removing unused module `$abstract\lfsr_equiv'.
+Removing unused module `$abstract\lfsr_gal'.
+Removing unused module `$abstract\lfsr_fib'.
+Removed 3 unused modules.
+Module lfsr_equiv directly or indirectly contains formal properties -> setting "keep" attribute.
+Mapping positional arguments of cell lfsr_equiv.gal ($paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal).
+Mapping positional arguments of cell lfsr_equiv.fib ($paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib).
+
+4.3. Executing PROC pass (convert processes to netlists).
+
+4.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$lfsr_fib.v:71$19 in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Marked 2 switch rules as full_case in process $proc$lfsr_gal.v:56$16 in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Removed a total of 0 dead cases.
+
+4.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 7 assignments to connections.
+
+4.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$proc$lfsr_fib.v:0$23'.
+  Set init value: \sreg = 8'10000000
+Found init rule in `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.$proc$lfsr_gal.v:0$18'.
+  Set init value: \sreg = 8'10000000
+Found init rule in `\lfsr_equiv.$proc$lfsr_equiv.v:0$14'.
+  Set init value: $formal$lfsr_equiv.v:75$2_EN = 1'0
+
+4.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+4.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$proc$lfsr_fib.v:0$23'.
+Creating decoders for process `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$proc$lfsr_fib.v:71$19'.
+     1/2: $0\sreg[7:0] [7]
+     2/2: $0\sreg[7:0] [6:0]
+Creating decoders for process `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.$proc$lfsr_gal.v:0$18'.
+Creating decoders for process `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.$proc$lfsr_gal.v:56$16'.
+     1/1: $0\sreg[7:0]
+Creating decoders for process `\lfsr_equiv.$proc$lfsr_equiv.v:0$14'.
+Creating decoders for process `\lfsr_equiv.$proc$lfsr_equiv.v:75$8'.
+Creating decoders for process `\lfsr_equiv.$proc$lfsr_equiv.v:73$4'.
+
+4.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\lfsr_equiv.$formal$lfsr_equiv.v:73$1_CHECK' from process `\lfsr_equiv.$proc$lfsr_equiv.v:73$4'.
+No latch inferred for signal `\lfsr_equiv.$formal$lfsr_equiv.v:73$1_EN' from process `\lfsr_equiv.$proc$lfsr_equiv.v:73$4'.
+
+4.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.\sreg' using process `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$proc$lfsr_fib.v:71$19'.
+  created $dff cell `$procdff$42' with positive edge clock.
+Creating register for signal `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.\sreg' using process `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.$proc$lfsr_gal.v:56$16'.
+  created $dff cell `$procdff$43' with positive edge clock.
+Creating register for signal `\lfsr_equiv.$formal$lfsr_equiv.v:75$2_CHECK' using process `\lfsr_equiv.$proc$lfsr_equiv.v:75$8'.
+  created $dff cell `$procdff$44' with positive edge clock.
+Creating register for signal `\lfsr_equiv.$formal$lfsr_equiv.v:75$2_EN' using process `\lfsr_equiv.$proc$lfsr_equiv.v:75$8'.
+  created $dff cell `$procdff$45' with positive edge clock.
+
+4.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$proc$lfsr_fib.v:0$23'.
+Found and cleaned up 2 empty switches in `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$proc$lfsr_fib.v:71$19'.
+Removing empty process `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$proc$lfsr_fib.v:71$19'.
+Removing empty process `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.$proc$lfsr_gal.v:0$18'.
+Found and cleaned up 3 empty switches in `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.$proc$lfsr_gal.v:56$16'.
+Removing empty process `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.$proc$lfsr_gal.v:56$16'.
+Removing empty process `lfsr_equiv.$proc$lfsr_equiv.v:0$14'.
+Removing empty process `lfsr_equiv.$proc$lfsr_equiv.v:75$8'.
+Removing empty process `lfsr_equiv.$proc$lfsr_equiv.v:73$4'.
+Cleaned up 5 empty switches.
+
+4.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Optimizing module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Optimizing module lfsr_equiv.
+
+4.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Optimizing module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Optimizing module lfsr_equiv.
+
+4.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+Finding unused cells or wires in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+Finding unused cells or wires in module \lfsr_equiv..
+Removed 0 unused cells and 20 unused wires.
+<suppressed ~3 debug messages>
+
+4.6. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib...
+Checking module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal...
+Checking module lfsr_equiv...
+Found and reported 0 problems.
+
+4.7. Executing OPT pass (performing simple optimizations).
+
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Optimizing module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Optimizing module lfsr_equiv.
+
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib'.
+Finding identical cells in module `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal'.
+Finding identical cells in module `\lfsr_equiv'.
+Removed a total of 0 cells.
+
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \lfsr_equiv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+  Optimizing cells in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+  Optimizing cells in module \lfsr_equiv.
+Performed a total of 0 changes.
+
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib'.
+Finding identical cells in module `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal'.
+Finding identical cells in module `\lfsr_equiv'.
+Removed a total of 0 cells.
+
+4.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+Finding unused cells or wires in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+Finding unused cells or wires in module \lfsr_equiv..
+
+4.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Optimizing module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Optimizing module lfsr_equiv.
+
+4.7.8. Finished OPT passes. (There is nothing left to do.)
+
+4.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 8) from port B of cell $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.$and$lfsr_fib.v:77$20 ($and).
+
+4.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+Finding unused cells or wires in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+Finding unused cells or wires in module \lfsr_equiv..
+
+4.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.11. Executing OPT pass (performing simple optimizations).
+
+4.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Optimizing module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Optimizing module lfsr_equiv.
+
+4.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib'.
+Finding identical cells in module `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal'.
+Finding identical cells in module `\lfsr_equiv'.
+Removed a total of 0 cells.
+
+4.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+Finding unused cells or wires in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+Finding unused cells or wires in module \lfsr_equiv..
+
+4.11.4. Finished fast OPT passes.
+
+4.12. Printing statistics.
+
+=== $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib ===
+
+   Number of wires:                 12
+   Number of wire bits:             39
+   Number of public wires:           6
+   Number of public wire bits:      13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $and                            1
+     $dff                            1
+     $mux                            4
+     $reduce_xor                     1
+     $xor                            1
+
+=== $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal ===
+
+   Number of wires:                 10
+   Number of wire bits:             45
+   Number of public wires:           6
+   Number of public wire bits:      13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $dff                            1
+     $mux                            3
+     $xor                            1
+
+=== lfsr_equiv ===
+
+   Number of wires:                 11
+   Number of wire bits:             11
+   Number of public wires:           7
+   Number of public wire bits:       7
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $assert                         2
+     $dff                            2
+     $eq                             1
+     $logic_not                      1
+     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib      1
+     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal      1
+     $xor                            1
+
+=== design hierarchy ===
+
+   lfsr_equiv                        1
+     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib      1
+     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal      1
+
+   Number of wires:                 33
+   Number of wire bits:             95
+   Number of public wires:          19
+   Number of public wire bits:      33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 20
+     $and                            1
+     $assert                         2
+     $dff                            4
+     $eq                             1
+     $logic_not                      1
+     $mux                            7
+     $reduce_xor                     1
+     $xor                            3
+
+4.13. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib...
+Checking module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal...
+Checking module lfsr_equiv...
+Found and reported 0 problems.
+
+5. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+6. Executing ASYNC2SYNC pass.
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+Finding unused cells or wires in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+Finding unused cells or wires in module \lfsr_equiv..
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Optimizing module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Optimizing module lfsr_equiv.
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib'.
+Finding identical cells in module `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal'.
+Finding identical cells in module `\lfsr_equiv'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$42 ($dff) from module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib (D = { $procmux$24_Y $procmux$29_Y }, Q = \sreg, rval = 8'10000000).
+Adding EN signal on $auto$ff.cc:262:slice$46 ($sdff) from module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib (D = { $xor$lfsr_fib.v:77$22_Y \sreg [7:1] }, Q = \sreg).
+Adding SRST signal on $procdff$43 ($dff) from module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal (D = $procmux$37_Y, Q = \sreg, rval = 8'10000000).
+Adding EN signal on $auto$ff.cc:262:slice$48 ($sdff) from module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal (D = $procmux$35_Y, Q = \sreg).
+
+9.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+Finding unused cells or wires in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+Finding unused cells or wires in module \lfsr_equiv..
+Removed 6 unused cells and 5 unused wires.
+<suppressed ~8 debug messages>
+
+9.5. Rerunning OPT passes. (Removed registers in this run.)
+
+9.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib.
+Optimizing module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal.
+Optimizing module lfsr_equiv.
+
+9.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib'.
+Finding identical cells in module `$paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal'.
+Finding identical cells in module `\lfsr_equiv'.
+Removed a total of 0 cells.
+
+9.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib..
+Finding unused cells or wires in module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal..
+Finding unused cells or wires in module \lfsr_equiv..
+
+9.10. Finished fast OPT passes.
+
+10. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib...
+Checking module $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal...
+Checking module lfsr_equiv...
+Found and reported 0 problems.
+
+11. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1. Analyzing design hierarchy..
+Top module:  \lfsr_equiv
+Used module:     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib
+Used module:     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal
+
+11.2. Analyzing design hierarchy..
+Top module:  \lfsr_equiv
+Used module:     $paramod$0aa70b75fd473bce0fdae03125c557661dcddb54\lfsr_fib
+Used module:     $paramod$1e8fd2014180d3b081200268dddacd58cbfd5991\lfsr_gal
+Removed 0 unused modules.
+Module lfsr_equiv directly or indirectly contains formal properties -> setting "keep" attribute.
+
+12. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 65c62c3c2d, CPU: user 0.03s system 0.00s, MEM: 14.09 MB peak
+Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+Time spent: 22% 7x opt_clean (0 sec), 22% 7x opt_expr (0 sec), ...
