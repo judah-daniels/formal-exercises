@@ -51,106 +51,91 @@ Module busyctr directly or indirectly contains formal properties -> setting "kee
 Cleaned up 0 empty switches.
 
 2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$busyctr.v:100$21 in module busyctr.
-Marked 2 switch rules as full_case in process $proc$busyctr.v:78$12 in module busyctr.
-Marked 2 switch rules as full_case in process $proc$busyctr.v:65$7 in module busyctr.
+Marked 1 switch rules as full_case in process $proc$busyctr.v:100$14 in module busyctr.
+Marked 2 switch rules as full_case in process $proc$busyctr.v:78$10 in module busyctr.
+Marked 2 switch rules as full_case in process $proc$busyctr.v:65$5 in module busyctr.
 Removed a total of 0 dead cases.
 
 2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
 Removed 1 redundant assignment.
-Promoted 8 assignments to connections.
+Promoted 6 assignments to connections.
 
 2.3.4. Executing PROC_INIT pass (extract init attributes).
-Found init rule in `\busyctr.$proc$busyctr.v:0$51'.
-  Set init value: $formal$busyctr.v:108$6_EN = 1'0
-Found init rule in `\busyctr.$proc$busyctr.v:0$49'.
-  Set init value: $formal$busyctr.v:103$5_EN = 1'0
-Found init rule in `\busyctr.$proc$busyctr.v:0$47'.
-  Set init value: $formal$busyctr.v:101$4_EN = 1'0
-Found init rule in `\busyctr.$proc$busyctr.v:0$45'.
-  Set init value: $formal$busyctr.v:96$3_EN = 1'0
-Found init rule in `\busyctr.$proc$busyctr.v:0$44'.
+Found init rule in `\busyctr.$proc$busyctr.v:0$41'.
+  Set init value: $formal$busyctr.v:108$4_EN = 1'0
+Found init rule in `\busyctr.$proc$busyctr.v:0$39'.
+  Set init value: $formal$busyctr.v:103$3_EN = 1'0
+Found init rule in `\busyctr.$proc$busyctr.v:0$37'.
+  Set init value: $formal$busyctr.v:101$2_EN = 1'0
+Found init rule in `\busyctr.$proc$busyctr.v:0$36'.
   Set init value: \o_busy = 1'0
-Found init rule in `\busyctr.$proc$busyctr.v:0$43'.
+Found init rule in `\busyctr.$proc$busyctr.v:0$35'.
   Set init value: \counter = 16'0000000000000000
 
 2.3.5. Executing PROC_ARST pass (detect async resets in processes).
 
 2.3.6. Executing PROC_ROM pass (convert switches to ROMs).
 Converted 0 switches.
-<suppressed ~8 debug messages>
+<suppressed ~7 debug messages>
 
 2.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\busyctr.$proc$busyctr.v:0$51'.
-Creating decoders for process `\busyctr.$proc$busyctr.v:0$49'.
-Creating decoders for process `\busyctr.$proc$busyctr.v:0$47'.
-Creating decoders for process `\busyctr.$proc$busyctr.v:0$45'.
-Creating decoders for process `\busyctr.$proc$busyctr.v:0$44'.
-Creating decoders for process `\busyctr.$proc$busyctr.v:0$43'.
-Creating decoders for process `\busyctr.$proc$busyctr.v:107$28'.
-     1/2: $0$formal$busyctr.v:108$6_EN[0:0]$31
-     2/2: $0$formal$busyctr.v:108$6_CHECK[0:0]$30
-Creating decoders for process `\busyctr.$proc$busyctr.v:100$21'.
-     1/4: $0$formal$busyctr.v:101$4_EN[0:0]$23
-     2/4: $0$formal$busyctr.v:101$4_CHECK[0:0]$22
-     3/4: $0$formal$busyctr.v:103$5_EN[0:0]$25
-     4/4: $0$formal$busyctr.v:103$5_CHECK[0:0]$24
-Creating decoders for process `\busyctr.$proc$busyctr.v:95$16'.
-     1/2: $0$formal$busyctr.v:96$3_EN[0:0]$19
-     2/2: $0$formal$busyctr.v:96$3_CHECK[0:0]$18
-Creating decoders for process `\busyctr.$proc$busyctr.v:78$12'.
+Creating decoders for process `\busyctr.$proc$busyctr.v:0$41'.
+Creating decoders for process `\busyctr.$proc$busyctr.v:0$39'.
+Creating decoders for process `\busyctr.$proc$busyctr.v:0$37'.
+Creating decoders for process `\busyctr.$proc$busyctr.v:0$36'.
+Creating decoders for process `\busyctr.$proc$busyctr.v:0$35'.
+Creating decoders for process `\busyctr.$proc$busyctr.v:107$21'.
+     1/2: $0$formal$busyctr.v:108$4_EN[0:0]$24
+     2/2: $0$formal$busyctr.v:108$4_CHECK[0:0]$23
+Creating decoders for process `\busyctr.$proc$busyctr.v:100$14'.
+     1/4: $0$formal$busyctr.v:101$2_EN[0:0]$16
+     2/4: $0$formal$busyctr.v:101$2_CHECK[0:0]$15
+     3/4: $0$formal$busyctr.v:103$3_EN[0:0]$18
+     4/4: $0$formal$busyctr.v:103$3_CHECK[0:0]$17
+Creating decoders for process `\busyctr.$proc$busyctr.v:78$10'.
      1/1: $0\o_busy[0:0]
-Creating decoders for process `\busyctr.$proc$busyctr.v:65$7'.
+Creating decoders for process `\busyctr.$proc$busyctr.v:65$5'.
      1/1: $0\counter[15:0]
 
 2.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
 
 2.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\busyctr.$past$busyctr.v:109$2$0' using process `\busyctr.$proc$busyctr.v:107$28'.
-  created $dff cell `$procdff$87' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:108$6_CHECK' using process `\busyctr.$proc$busyctr.v:107$28'.
-  created $dff cell `$procdff$88' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:108$6_EN' using process `\busyctr.$proc$busyctr.v:107$28'.
-  created $dff cell `$procdff$89' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:101$4_CHECK' using process `\busyctr.$proc$busyctr.v:100$21'.
-  created $dff cell `$procdff$90' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:101$4_EN' using process `\busyctr.$proc$busyctr.v:100$21'.
-  created $dff cell `$procdff$91' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:103$5_CHECK' using process `\busyctr.$proc$busyctr.v:100$21'.
-  created $dff cell `$procdff$92' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:103$5_EN' using process `\busyctr.$proc$busyctr.v:100$21'.
-  created $dff cell `$procdff$93' with positive edge clock.
-Creating register for signal `\busyctr.$past$busyctr.v:96$1$0' using process `\busyctr.$proc$busyctr.v:95$16'.
-  created $dff cell `$procdff$94' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:96$3_CHECK' using process `\busyctr.$proc$busyctr.v:95$16'.
-  created $dff cell `$procdff$95' with positive edge clock.
-Creating register for signal `\busyctr.$formal$busyctr.v:96$3_EN' using process `\busyctr.$proc$busyctr.v:95$16'.
-  created $dff cell `$procdff$96' with positive edge clock.
-Creating register for signal `\busyctr.\o_busy' using process `\busyctr.$proc$busyctr.v:78$12'.
-  created $dff cell `$procdff$97' with positive edge clock.
-Creating register for signal `\busyctr.\counter' using process `\busyctr.$proc$busyctr.v:65$7'.
-  created $dff cell `$procdff$98' with positive edge clock.
+Creating register for signal `\busyctr.$past$busyctr.v:109$1$0' using process `\busyctr.$proc$busyctr.v:107$21'.
+  created $dff cell `$procdff$73' with positive edge clock.
+Creating register for signal `\busyctr.$formal$busyctr.v:108$4_CHECK' using process `\busyctr.$proc$busyctr.v:107$21'.
+  created $dff cell `$procdff$74' with positive edge clock.
+Creating register for signal `\busyctr.$formal$busyctr.v:108$4_EN' using process `\busyctr.$proc$busyctr.v:107$21'.
+  created $dff cell `$procdff$75' with positive edge clock.
+Creating register for signal `\busyctr.$formal$busyctr.v:101$2_CHECK' using process `\busyctr.$proc$busyctr.v:100$14'.
+  created $dff cell `$procdff$76' with positive edge clock.
+Creating register for signal `\busyctr.$formal$busyctr.v:101$2_EN' using process `\busyctr.$proc$busyctr.v:100$14'.
+  created $dff cell `$procdff$77' with positive edge clock.
+Creating register for signal `\busyctr.$formal$busyctr.v:103$3_CHECK' using process `\busyctr.$proc$busyctr.v:100$14'.
+  created $dff cell `$procdff$78' with positive edge clock.
+Creating register for signal `\busyctr.$formal$busyctr.v:103$3_EN' using process `\busyctr.$proc$busyctr.v:100$14'.
+  created $dff cell `$procdff$79' with positive edge clock.
+Creating register for signal `\busyctr.\o_busy' using process `\busyctr.$proc$busyctr.v:78$10'.
+  created $dff cell `$procdff$80' with positive edge clock.
+Creating register for signal `\busyctr.\counter' using process `\busyctr.$proc$busyctr.v:65$5'.
+  created $dff cell `$procdff$81' with positive edge clock.
 
 2.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `busyctr.$proc$busyctr.v:0$51'.
-Removing empty process `busyctr.$proc$busyctr.v:0$49'.
-Removing empty process `busyctr.$proc$busyctr.v:0$47'.
-Removing empty process `busyctr.$proc$busyctr.v:0$45'.
-Removing empty process `busyctr.$proc$busyctr.v:0$44'.
-Removing empty process `busyctr.$proc$busyctr.v:0$43'.
-Found and cleaned up 1 empty switch in `\busyctr.$proc$busyctr.v:107$28'.
-Removing empty process `busyctr.$proc$busyctr.v:107$28'.
-Found and cleaned up 1 empty switch in `\busyctr.$proc$busyctr.v:100$21'.
-Removing empty process `busyctr.$proc$busyctr.v:100$21'.
-Found and cleaned up 1 empty switch in `\busyctr.$proc$busyctr.v:95$16'.
-Removing empty process `busyctr.$proc$busyctr.v:95$16'.
-Found and cleaned up 2 empty switches in `\busyctr.$proc$busyctr.v:78$12'.
-Removing empty process `busyctr.$proc$busyctr.v:78$12'.
-Found and cleaned up 3 empty switches in `\busyctr.$proc$busyctr.v:65$7'.
-Removing empty process `busyctr.$proc$busyctr.v:65$7'.
-Cleaned up 8 empty switches.
+Removing empty process `busyctr.$proc$busyctr.v:0$41'.
+Removing empty process `busyctr.$proc$busyctr.v:0$39'.
+Removing empty process `busyctr.$proc$busyctr.v:0$37'.
+Removing empty process `busyctr.$proc$busyctr.v:0$36'.
+Removing empty process `busyctr.$proc$busyctr.v:0$35'.
+Found and cleaned up 1 empty switch in `\busyctr.$proc$busyctr.v:107$21'.
+Removing empty process `busyctr.$proc$busyctr.v:107$21'.
+Found and cleaned up 1 empty switch in `\busyctr.$proc$busyctr.v:100$14'.
+Removing empty process `busyctr.$proc$busyctr.v:100$14'.
+Found and cleaned up 2 empty switches in `\busyctr.$proc$busyctr.v:78$10'.
+Removing empty process `busyctr.$proc$busyctr.v:78$10'.
+Found and cleaned up 3 empty switches in `\busyctr.$proc$busyctr.v:65$5'.
+Removing empty process `busyctr.$proc$busyctr.v:65$5'.
+Cleaned up 7 empty switches.
 
 2.3.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module busyctr.
@@ -161,7 +146,7 @@ Optimizing module busyctr.
 
 2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \busyctr..
-Removed 0 unused cells and 31 unused wires.
+Removed 0 unused cells and 25 unused wires.
 <suppressed ~1 debug messages>
 
 2.6. Executing CHECK pass (checking for obvious problems).
@@ -184,7 +169,7 @@ Running muxtree optimizer on module \busyctr..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~10 debug messages>
+<suppressed ~8 debug messages>
 
 2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \busyctr.
@@ -210,7 +195,7 @@ Running muxtree optimizer on module \busyctr..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~10 debug messages>
+<suppressed ~8 debug messages>
 
 2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \busyctr.
@@ -229,10 +214,10 @@ Optimizing module busyctr.
 2.7.14. Finished OPT passes. (There is nothing left to do.)
 
 2.8. Executing WREDUCE pass (reducing word size of cells).
-Removed top 15 bits (of 16) from port B of cell busyctr.$eq$busyctr.v:80$13 ($eq).
-Removed top 11 bits (of 16) from port B of cell busyctr.$ne$busyctr.v:108$35 ($ne).
-Removed top 31 bits (of 32) from port B of cell busyctr.$sub$busyctr.v:109$37 ($sub).
-Removed top 15 bits (of 32) from port Y of cell busyctr.$sub$busyctr.v:109$37 ($sub).
+Removed top 15 bits (of 16) from port B of cell busyctr.$eq$busyctr.v:80$11 ($eq).
+Removed top 11 bits (of 16) from port B of cell busyctr.$ne$busyctr.v:108$28 ($ne).
+Removed top 31 bits (of 32) from port B of cell busyctr.$sub$busyctr.v:109$30 ($sub).
+Removed top 15 bits (of 32) from port Y of cell busyctr.$sub$busyctr.v:109$30 ($sub).
 
 2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \busyctr..
@@ -257,23 +242,22 @@ Finding unused cells or wires in module \busyctr..
 
 === busyctr ===
 
-   Number of wires:                 42
-   Number of wire bits:            163
+   Number of wires:                 36
+   Number of wire bits:            157
    Number of public wires:           5
    Number of public wire bits:      20
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 43
+   Number of cells:                 36
      $assert                         3
-     $assume                         1
-     $dff                           12
-     $eq                             2
-     $logic_and                      4
+     $dff                            9
+     $eq                             1
+     $logic_and                      3
      $logic_not                      3
      $logic_or                       1
-     $mux                           13
-     $ne                             1
+     $mux                           11
+     $ne                             2
      $reduce_bool                    1
      $sub                            2
 
@@ -291,8 +275,6 @@ Removed a total of 0 cells.
 
 6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \busyctr..
-Removed 2 unused cells and 2 unused wires.
-<suppressed ~3 debug messages>
 
 7. Executing SETUNDEF pass (replace undef values with defined constants).
 
@@ -306,11 +288,11 @@ Finding identical cells in module `\busyctr'.
 Removed a total of 0 cells.
 
 8.3. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $procdff$98 ($dff) from module busyctr (D = { $procmux$82_Y [4] $procmux$82_Y [2] $procmux$82_Y [0] }, Q = { \counter [4] \counter [2] \counter [0] }, rval = 3'000).
-Adding SRST signal on $procdff$98 ($dff) from module busyctr (D = { $procmux$79_Y [15:5] $procmux$79_Y [3] $procmux$79_Y [1] }, Q = { \counter [15:5] \counter [3] \counter [1] }, rval = 13'0000000000000).
-Adding EN signal on $auto$ff.cc:262:slice$108 ($sdff) from module busyctr (D = { $sub$busyctr.v:71$11_Y [15:5] $sub$busyctr.v:71$11_Y [3] $sub$busyctr.v:71$11_Y [1] }, Q = { \counter [15:5] \counter [3] \counter [1] }).
-Adding EN signal on $auto$ff.cc:262:slice$107 ($sdff) from module busyctr (D = { $procmux$82_Y [4] $procmux$82_Y [2] $procmux$82_Y [0] }, Q = { \counter [4] \counter [2] \counter [0] }).
-Adding SRST signal on $procdff$97 ($dff) from module busyctr (D = $procmux$74_Y, Q = \o_busy, rval = 1'0).
+Adding SRST signal on $procdff$81 ($dff) from module busyctr (D = { $procmux$68_Y [4] $procmux$68_Y [2] $procmux$68_Y [0] }, Q = { \counter [4] \counter [2] \counter [0] }, rval = 3'000).
+Adding SRST signal on $procdff$81 ($dff) from module busyctr (D = { $procmux$65_Y [15:5] $procmux$65_Y [3] $procmux$65_Y [1] }, Q = { \counter [15:5] \counter [3] \counter [1] }, rval = 13'0000000000000).
+Adding EN signal on $auto$ff.cc:262:slice$89 ($sdff) from module busyctr (D = { $sub$busyctr.v:71$9_Y [15:5] $sub$busyctr.v:71$9_Y [3] $sub$busyctr.v:71$9_Y [1] }, Q = { \counter [15:5] \counter [3] \counter [1] }).
+Adding EN signal on $auto$ff.cc:262:slice$88 ($sdff) from module busyctr (D = { $procmux$68_Y [4] $procmux$68_Y [2] $procmux$68_Y [0] }, Q = { \counter [4] \counter [2] \counter [0] }).
+Adding SRST signal on $procdff$80 ($dff) from module busyctr (D = $procmux$60_Y, Q = \o_busy, rval = 1'0).
 
 8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \busyctr..
@@ -351,6 +333,6 @@ Module busyctr directly or indirectly contains formal properties -> setting "kee
 11. Executing RTLIL backend.
 Output filename: ../model/design.il
 
-End of script. Logfile hash: d6e9365c67, CPU: user 0.03s system 0.00s, MEM: 14.11 MB peak
+End of script. Logfile hash: 2fca8949b6, CPU: user 0.02s system 0.01s, MEM: 14.09 MB peak
 Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
-Time spent: 29% 8x opt_clean (0 sec), 24% 8x opt_expr (0 sec), ...
+Time spent: 27% 8x opt_clean (0 sec), 25% 8x opt_expr (0 sec), ...

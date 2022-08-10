@@ -31,36 +31,37 @@ Input filename: design.il
 
 3. Printing statistics.
 
-=== busyctr ===
+=== absoneup ===
 
-   Number of wires:                 44
-   Number of wire bits:            178
-   Number of public wires:           5
-   Number of public wire bits:      20
+   Number of wires:                 36
+   Number of wire bits:            222
+   Number of public wires:           6
+   Number of public wire bits:      99
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 45
-     $anyseq                         3
-     $assert                         3
-     $dff                           10
-     $eq                             1
-     $logic_and                      3
+   Number of cells:                 38
+     $add                            1
+     $anyseq                         5
+     $assert                         2
+     $assume                         2
+     $dff                            8
+     $eq                             2
+     $gt                             1
+     $le                             1
+     $logic_and                      2
      $logic_not                      3
-     $logic_or                       1
-     $mux                           14
-     $ne                             2
-     $reduce_bool                    2
-     $reduce_or                      1
-     $sub                            2
+     $mux                            9
+     $reduce_and                     1
+     $sub                            1
 
 4. Executing SMT2 backend.
 
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Creating SMT-LIBv2 representation of module busyctr.
+Creating SMT-LIBv2 representation of module absoneup.
 
-End of script. Logfile hash: 03fa6459d9, CPU: user 0.00s system 0.00s, MEM: 13.37 MB peak
+End of script. Logfile hash: dcfb9460cd, CPU: user 0.00s system 0.00s, MEM: 13.43 MB peak
 Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
-Time spent: 61% 2x write_smt2 (0 sec), 29% 2x read_ilang (0 sec), ...
+Time spent: 61% 2x write_smt2 (0 sec), 28% 2x read_ilang (0 sec), ...

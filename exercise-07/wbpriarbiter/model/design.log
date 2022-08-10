@@ -1,0 +1,258 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: fwb_slave.v
+Parsing formal Verilog input from `fwb_slave.v' to AST representation.
+Generating RTLIL representation for module `\fwb_slave'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: fwb_master.v
+Parsing formal Verilog input from `fwb_master.v' to AST representation.
+Generating RTLIL representation for module `\fwb_master'.
+Warning: wire '\f_nreqs' is assigned in a block at fwb_master.v:371.10-371.21.
+Warning: wire '\f_nreqs' is assigned in a block at fwb_master.v:374.3-374.15.
+Warning: wire '\f_nreqs' is assigned in a block at fwb_master.v:376.3-376.28.
+Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:382.10-382.21.
+Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:385.3-385.15.
+Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:387.3-387.15.
+Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:389.3-389.28.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: wbpriarbiter.v
+Parsing formal Verilog input from `wbpriarbiter.v' to AST representation.
+Generating RTLIL representation for module `\wbpriarbiter'.
+Successfully finished Verilog frontend.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \wbpriarbiter
+
+4.1.2. Analyzing design hierarchy..
+Top module:  \wbpriarbiter
+Removing unused module `\fwb_master'.
+Removing unused module `\fwb_slave'.
+Removed 2 unused modules.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `wbpriarbiter.$proc$wbpriarbiter.v:168$685'.
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$wbpriarbiter.v:106$677 in module wbpriarbiter.
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\wbpriarbiter.$proc$wbpriarbiter.v:0$698'.
+  Set init value: \r_a_owner = 1'1
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\wbpriarbiter.$proc$wbpriarbiter.v:0$698'.
+Creating decoders for process `\wbpriarbiter.$proc$wbpriarbiter.v:106$677'.
+     1/1: $0\r_a_owner[0:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\wbpriarbiter.\r_a_owner' using process `\wbpriarbiter.$proc$wbpriarbiter.v:106$677'.
+  created $dff cell `$procdff$704' with positive edge clock.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `wbpriarbiter.$proc$wbpriarbiter.v:0$698'.
+Found and cleaned up 2 empty switches in `\wbpriarbiter.$proc$wbpriarbiter.v:106$677'.
+Removing empty process `wbpriarbiter.$proc$wbpriarbiter.v:106$677'.
+Cleaned up 2 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wbpriarbiter.
+<suppressed ~4 debug messages>
+
+4.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wbpriarbiter.
+
+4.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wbpriarbiter..
+Removed 4 unused cells and 20 unused wires.
+<suppressed ~5 debug messages>
+
+4.5. Executing CHECK pass (checking for obvious problems).
+Checking module wbpriarbiter...
+Found and reported 0 problems.
+
+4.6. Executing OPT pass (performing simple optimizations).
+
+4.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wbpriarbiter.
+
+4.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wbpriarbiter'.
+Removed a total of 0 cells.
+
+4.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wbpriarbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wbpriarbiter.
+Performed a total of 0 changes.
+
+4.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wbpriarbiter'.
+Removed a total of 0 cells.
+
+4.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wbpriarbiter..
+
+4.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wbpriarbiter.
+
+4.6.8. Finished OPT passes. (There is nothing left to do.)
+
+4.7. Executing WREDUCE pass (reducing word size of cells).
+
+4.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wbpriarbiter..
+
+4.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.10. Executing OPT pass (performing simple optimizations).
+
+4.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wbpriarbiter.
+
+4.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wbpriarbiter'.
+Removed a total of 0 cells.
+
+4.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wbpriarbiter..
+
+4.10.4. Finished fast OPT passes.
+
+4.11. Printing statistics.
+
+=== wbpriarbiter ===
+
+   Number of wires:                 34
+   Number of wire bits:            229
+   Number of public wires:          29
+   Number of public wire bits:     224
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $dff                            1
+     $logic_and                      2
+     $logic_not                      1
+     $mux                           14
+
+4.12. Executing CHECK pass (checking for obvious problems).
+Checking module wbpriarbiter...
+Found and reported 0 problems.
+
+5. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+6. Executing ASYNC2SYNC pass.
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wbpriarbiter..
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wbpriarbiter.
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wbpriarbiter'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$704 ($dff) from module wbpriarbiter (D = $procmux$699_Y, Q = \r_a_owner, rval = 1'1).
+Adding EN signal on $auto$ff.cc:262:slice$705 ($sdff) from module wbpriarbiter (D = 1'0, Q = \r_a_owner).
+
+9.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wbpriarbiter..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9.5. Rerunning OPT passes. (Removed registers in this run.)
+
+9.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wbpriarbiter.
+
+9.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wbpriarbiter'.
+Removed a total of 0 cells.
+
+9.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wbpriarbiter..
+
+9.10. Finished fast OPT passes.
+
+10. Executing CHECK pass (checking for obvious problems).
+Checking module wbpriarbiter...
+Found and reported 0 problems.
+
+11. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1. Analyzing design hierarchy..
+Top module:  \wbpriarbiter
+
+11.2. Analyzing design hierarchy..
+Top module:  \wbpriarbiter
+Removed 0 unused modules.
+
+12. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 7 unique messages, 7 total
+End of script. Logfile hash: 94f3bc6685, CPU: user 0.04s system 0.00s, MEM: 15.39 MB peak
+Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+Time spent: 52% 6x read_verilog (0 sec), 14% 7x opt_clean (0 sec), ...

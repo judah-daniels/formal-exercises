@@ -1,0 +1,58 @@
+SBY 11:11:43 [wbpriarbiter] Removing directory '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-07/wbpriarbiter'.
+SBY 11:11:43 [wbpriarbiter] Copy '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-07/fwb_slave.v' to '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-07/wbpriarbiter/src/fwb_slave.v'.
+SBY 11:11:43 [wbpriarbiter] Copy '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-07/fwb_master.v' to '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-07/wbpriarbiter/src/fwb_master.v'.
+SBY 11:11:43 [wbpriarbiter] Copy '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-07/wbpriarbiter.v' to '/home/judah/Documents/notes/obsidian_vault/myrtle/formal/class-exercises/exercise-07/wbpriarbiter/src/wbpriarbiter.v'.
+SBY 11:11:43 [wbpriarbiter] engine_0: smtbmc
+SBY 11:11:43 [wbpriarbiter] base: starting process "cd wbpriarbiter/src; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys -ql ../model/design.log ../model/design.ys"
+SBY 11:11:43 [wbpriarbiter] base: Warning: wire '\f_nreqs' is assigned in a block at fwb_master.v:371.10-371.21.
+SBY 11:11:43 [wbpriarbiter] base: Warning: wire '\f_nreqs' is assigned in a block at fwb_master.v:374.3-374.15.
+SBY 11:11:43 [wbpriarbiter] base: Warning: wire '\f_nreqs' is assigned in a block at fwb_master.v:376.3-376.28.
+SBY 11:11:43 [wbpriarbiter] base: Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:382.10-382.21.
+SBY 11:11:43 [wbpriarbiter] base: Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:385.3-385.15.
+SBY 11:11:43 [wbpriarbiter] base: Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:387.3-387.15.
+SBY 11:11:43 [wbpriarbiter] base: Warning: wire '\f_nacks' is assigned in a block at fwb_master.v:389.3-389.28.
+SBY 11:11:43 [wbpriarbiter] base: finished (returncode=0)
+SBY 11:11:43 [wbpriarbiter] smt2: starting process "cd wbpriarbiter/model; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys -ql design_smt2.log design_smt2.ys"
+SBY 11:11:43 [wbpriarbiter] smt2: finished (returncode=0)
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: starting process "cd wbpriarbiter; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys-smtbmc --presat --unroll --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 11:11:43 [wbpriarbiter] engine_0.induction: starting process "cd wbpriarbiter; /nix/store/ic3gfmcbhz656cdpyjn861nmlz3xfl8x-yosys-0.18/bin/yosys-smtbmc --presat --unroll -i --noprogress -t 12  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY 11:11:43 [wbpriarbiter] engine_0.induction: ##   0:00:00  Solver: yices
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 11:11:43 [wbpriarbiter] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 11:11:43 [wbpriarbiter] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 11:11:43 [wbpriarbiter] engine_0.induction: ##   0:00:00  Status: passed
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 11:11:43 [wbpriarbiter] engine_0.induction: finished (returncode=0)
+SBY 11:11:43 [wbpriarbiter] engine_0: Status returned by engine for induction: pass
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 11:11:43 [wbpriarbiter] engine_0.basecase: finished (returncode=0)
+SBY 11:11:43 [wbpriarbiter] engine_0: Status returned by engine for basecase: pass
+SBY 11:11:43 [wbpriarbiter] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 11:11:43 [wbpriarbiter] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 11:11:43 [wbpriarbiter] summary: engine_0 (smtbmc) returned pass for induction
+SBY 11:11:43 [wbpriarbiter] summary: engine_0 (smtbmc) returned pass for basecase
+SBY 11:11:43 [wbpriarbiter] summary: successful proof by k-induction.
+SBY 11:11:43 [wbpriarbiter] DONE (PASS, rc=0)

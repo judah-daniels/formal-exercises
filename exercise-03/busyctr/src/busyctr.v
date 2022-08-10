@@ -92,9 +92,9 @@ module	busyctr #(
 		/* is both high and the counter is no longer busy. */
 		/* Following (i_start_signal)&&(!o_busy), i_start_signal is no */
 		/* longer constrained--until it is raised again. */
-    always @(posedge i_clk)
-        if($past(i_start_signal) && o_busy)
-            assume(i_start_signal); 
+    /* always @(posedge i_clk) */
+    /*     if($past(i_start_signal) && o_busy) */
+            //assume(i_start_signal); 
 
     // 2. o_busy is always true while the counter is non-zero
     always @(posedge i_clk)
@@ -106,6 +106,7 @@ module	busyctr #(
     //	3. If the counter is non-zero, it should always be counting down
     always @(posedge i_clk)
         if (counter != 0 && !i_reset && counter != MAX_AMOUNT - 1'b1)
-            assert(counter == $past(counter) - 1);
+            assert(counter != $past(counter) - 1);
+            
 `endif
 endmodule

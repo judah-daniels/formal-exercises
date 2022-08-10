@@ -1,0 +1,30 @@
+initial
+assume (= [$formal$busyctr.v:101$2_CHECK] false)
+assume (= [$formal$busyctr.v:101$2_EN] false)
+assume (= [$formal$busyctr.v:103$3_CHECK] false)
+assume (= [$formal$busyctr.v:103$3_EN] false)
+assume (= [$formal$busyctr.v:108$4_CHECK] false)
+assume (= [$formal$busyctr.v:108$4_EN] false)
+assume (= [$past$busyctr.v:109$1$0] #b0000000000000000)
+assume (= [counter] #b0000000000000000)
+assume (= [o_busy] false)
+
+state 0
+assume (= [i_clk] false)
+assume (= [i_reset] false)
+assume (= [i_start_signal] true)
+
+state 1
+assume (= [i_clk] false)
+assume (= [i_reset] false)
+assume (= [i_start_signal] true)
+
+state 2
+assume (= [i_clk] false)
+assume (= [i_reset] false)
+assume (= [i_start_signal] false)
+
+state 3
+assume (= [i_clk] false)
+assume (= [i_reset] false)
+assume (= [i_start_signal] false)

@@ -31,36 +31,34 @@ Input filename: design.il
 
 3. Printing statistics.
 
-=== busyctr ===
+=== reqarb ===
 
-   Number of wires:                 44
-   Number of wire bits:            178
-   Number of public wires:           5
-   Number of public wire bits:      20
+   Number of wires:                 51
+   Number of wire bits:             51
+   Number of public wires:          12
+   Number of public wire bits:      12
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 45
+   Number of cells:                 49
      $anyseq                         3
-     $assert                         3
-     $dff                           10
-     $eq                             1
-     $logic_and                      3
-     $logic_not                      3
-     $logic_or                       1
-     $mux                           14
-     $ne                             2
-     $reduce_bool                    2
-     $reduce_or                      1
-     $sub                            2
+     $assert                         2
+     $assume                         3
+     $dff                            8
+     $eq                             3
+     $logic_and                      8
+     $logic_not                      4
+     $logic_or                       5
+     $mux                           12
+     $reduce_bool                    1
 
 4. Executing SMT2 backend.
 
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Creating SMT-LIBv2 representation of module busyctr.
+Creating SMT-LIBv2 representation of module reqarb.
 
-End of script. Logfile hash: 03fa6459d9, CPU: user 0.00s system 0.00s, MEM: 13.37 MB peak
+End of script. Logfile hash: 9f995fee31, CPU: user 0.00s system 0.00s, MEM: 13.20 MB peak
 Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
-Time spent: 61% 2x write_smt2 (0 sec), 29% 2x read_ilang (0 sec), ...
+Time spent: 55% 2x write_smt2 (0 sec), 36% 2x read_ilang (0 sec), ...
