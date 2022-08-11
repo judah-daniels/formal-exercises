@@ -1,0 +1,13 @@
+# running in iserdes/src/
+read -formal iserdes.v
+prep -top iserdes
+
+memory_nordff
+clk2fflogic
+chformal -live -fair -cover -remove
+opt_clean
+setundef -anyseq
+opt -keepdc -fast
+check
+hierarchy -simcheck
+write_ilang ../model/design.il

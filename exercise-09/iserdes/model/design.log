@@ -1,0 +1,343 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: iserdes.v
+Parsing formal SystemVerilog input from `iserdes.v' to AST representation.
+Storing AST representation for module `$abstract\iserdes'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\iserdes'.
+Generating RTLIL representation for module `\iserdes'.
+Warning: wire '\f_past_valid' is assigned in a block at iserdes.v:91.11-91.27.
+Warning: wire '\f_past_valid' is assigned in a block at iserdes.v:94.7-94.24.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \iserdes
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \iserdes
+Removing unused module `$abstract\iserdes'.
+Removed 1 unused modules.
+Module iserdes directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `iserdes.$proc$iserdes.v:119$36'.
+Removing empty process `iserdes.$proc$iserdes.v:114$35'.
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$iserdes.v:79$9 in module iserdes.
+Marked 1 switch rules as full_case in process $proc$iserdes.v:73$7 in module iserdes.
+Removed a total of 0 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 16 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\iserdes.$proc$iserdes.v:0$45'.
+  Set init value: $formal$iserdes.v:101$4_EN = 1'0
+Found init rule in `\iserdes.$proc$iserdes.v:0$43'.
+  Set init value: $formal$iserdes.v:99$3_EN = 1'0
+Found init rule in `\iserdes.$proc$iserdes.v:0$42'.
+  Set init value: \f_past_valid = 1'0
+Found init rule in `\iserdes.$proc$iserdes.v:0$41'.
+  Set init value: \f_clk_counter = 10'0000000000
+Found init rule in `\iserdes.$proc$iserdes.v:0$49'.
+  Set init value: $formal$iserdes.v:106$6_EN = 1'0
+Found init rule in `\iserdes.$proc$iserdes.v:0$47'.
+  Set init value: $formal$iserdes.v:105$5_EN = 1'0
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \i_areset_n in `\iserdes.$proc$iserdes.v:79$9'.
+Found async reset \i_areset_n in `\iserdes.$proc$iserdes.v:73$7'.
+
+2.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+2.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\iserdes.$proc$iserdes.v:0$45'.
+Creating decoders for process `\iserdes.$proc$iserdes.v:0$43'.
+Creating decoders for process `\iserdes.$proc$iserdes.v:0$42'.
+Creating decoders for process `\iserdes.$proc$iserdes.v:0$41'.
+Creating decoders for process `\iserdes.$proc$iserdes.v:0$49'.
+Creating decoders for process `\iserdes.$proc$iserdes.v:0$47'.
+Creating decoders for process `\iserdes.$proc$iserdes.v:97$12'.
+     1/2: $0$formal$iserdes.v:105$5_EN[0:0]$20
+     2/2: $0$formal$iserdes.v:105$5_CHECK[0:0]$19
+Creating decoders for process `\iserdes.$proc$iserdes.v:93$11'.
+Creating decoders for process `\iserdes.$proc$iserdes.v:79$9'.
+     1/1: $0\o_word[9:0]
+Creating decoders for process `\iserdes.$proc$iserdes.v:73$7'.
+     1/1: $0\r_word[9:0]
+
+2.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\iserdes.\f_clk_counter' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$55' with global clock.
+Creating register for signal `\iserdes.$past$iserdes.v:105$1$0' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$56' with global clock.
+Creating register for signal `\iserdes.$past$iserdes.v:106$2$0' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$57' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:99$3_CHECK' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$58' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:99$3_EN' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$59' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:101$4_CHECK' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$60' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:101$4_EN' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$61' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:105$5_CHECK' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$62' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:105$5_EN' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$63' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:106$6_CHECK' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$64' with global clock.
+Creating register for signal `\iserdes.$formal$iserdes.v:106$6_EN' using process `\iserdes.$proc$iserdes.v:97$12'.
+  created $ff cell `$procdff$65' with global clock.
+Creating register for signal `\iserdes.\f_past_valid' using process `\iserdes.$proc$iserdes.v:93$11'.
+  created $ff cell `$procdff$66' with global clock.
+Creating register for signal `\iserdes.\o_word' using process `\iserdes.$proc$iserdes.v:79$9'.
+  created $adff cell `$procdff$67' with positive edge clock and negative level reset.
+Creating register for signal `\iserdes.\r_word' using process `\iserdes.$proc$iserdes.v:73$7'.
+  created $adff cell `$procdff$68' with positive edge clock and negative level reset.
+
+2.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `iserdes.$proc$iserdes.v:0$45'.
+Removing empty process `iserdes.$proc$iserdes.v:0$43'.
+Removing empty process `iserdes.$proc$iserdes.v:0$42'.
+Removing empty process `iserdes.$proc$iserdes.v:0$41'.
+Removing empty process `iserdes.$proc$iserdes.v:0$49'.
+Removing empty process `iserdes.$proc$iserdes.v:0$47'.
+Found and cleaned up 1 empty switch in `\iserdes.$proc$iserdes.v:97$12'.
+Removing empty process `iserdes.$proc$iserdes.v:97$12'.
+Removing empty process `iserdes.$proc$iserdes.v:93$11'.
+Removing empty process `iserdes.$proc$iserdes.v:79$9'.
+Removing empty process `iserdes.$proc$iserdes.v:73$7'.
+Cleaned up 1 empty switch.
+
+2.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module iserdes.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module iserdes.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \iserdes..
+Removed 2 unused cells and 25 unused wires.
+<suppressed ~4 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module iserdes...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module iserdes.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\iserdes'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \iserdes..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \iserdes.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\iserdes'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \iserdes..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module iserdes.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \iserdes..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \iserdes.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\iserdes'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \iserdes..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module iserdes.
+
+2.7.14. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell iserdes.$and$iserdes.v:0$26 ($and).
+Removed top 31 bits (of 32) from port Y of cell iserdes.$and$iserdes.v:0$26 ($and).
+Removed top 31 bits (of 32) from port B of cell iserdes.$and$iserdes.v:0$28 ($and).
+Removed top 31 bits (of 32) from port Y of cell iserdes.$and$iserdes.v:0$28 ($and).
+Removed top 31 bits (of 32) from port B of cell iserdes.$and$iserdes.v:0$31 ($and).
+Removed top 31 bits (of 32) from port Y of cell iserdes.$and$iserdes.v:0$31 ($and).
+Removed top 31 bits (of 32) from port B of cell iserdes.$and$iserdes.v:0$33 ($and).
+Removed top 31 bits (of 32) from port Y of cell iserdes.$and$iserdes.v:0$33 ($and).
+Removed top 1 bits (of 10) from FF cell iserdes.$procdff$68 ($adff).
+Removed top 31 bits (of 32) from wire iserdes.$and$iserdes.v:0$26_Y.
+Removed top 31 bits (of 32) from wire iserdes.$and$iserdes.v:0$28_Y.
+Removed top 31 bits (of 32) from wire iserdes.$and$iserdes.v:0$31_Y.
+Removed top 31 bits (of 32) from wire iserdes.$and$iserdes.v:0$33_Y.
+Removed top 1 bits (of 10) from wire iserdes.r_word.
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \iserdes..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module iserdes.
+<suppressed ~4 debug messages>
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\iserdes'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \iserdes..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== iserdes ===
+
+   Number of wires:                 25
+   Number of wire bits:             60
+   Number of public wires:           8
+   Number of public wire bits:      34
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 25
+     $add                            1
+     $adff                           2
+     $assume                         4
+     $eq                             2
+     $ff                             9
+     $logic_and                      3
+     $logic_not                      2
+     $mux                            2
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module iserdes...
+Found and reported 0 problems.
+
+3. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+4. Executing CLK2FFLOGIC pass (convert clocked FFs to generic $ff cells).
+Replacing iserdes.$procdff$67 ($adff): CLK=\i_slow_clk, D={ \r_word \i_pin }, Q=\o_word
+Replacing iserdes.$procdff$68 ($adff): CLK=\i_fast_clk, D={ \r_word [7:0] \i_pin }, Q=\r_word
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \iserdes..
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module iserdes.
+<suppressed ~2 debug messages>
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\iserdes'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+7.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \iserdes..
+Removed 1 unused cells and 4 unused wires.
+<suppressed ~2 debug messages>
+
+7.5. Finished fast OPT passes.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module iserdes...
+Found and reported 0 problems.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \iserdes
+
+9.2. Analyzing design hierarchy..
+Top module:  \iserdes
+Removed 0 unused modules.
+Module iserdes directly or indirectly contains formal properties -> setting "keep" attribute.
+
+10. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: b6e6ed9b18, CPU: user 0.03s system 0.00s, MEM: 14.15 MB peak
+Yosys 0.18 (git sha1 19ce3b45d6, gcc 11.3.0 -fPIC -Os)
+Time spent: 29% 7x opt_clean (0 sec), 24% 7x opt_expr (0 sec), ...
